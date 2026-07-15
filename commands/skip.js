@@ -3,15 +3,15 @@ const { hasQueue, getQueue } = require('../musicManager');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('pause')
-    .setDescription('Pausa a música atual'),
+    .setName('skip')
+    .setDescription('Pula a música atual'),
 
   async execute(interaction) {
     if (!hasQueue(interaction.guildId)) {
       return interaction.reply({ content: '❌ Não há nada tocando agora.', ephemeral: true });
     }
     const queue = getQueue(interaction.guildId, interaction.channel);
-    queue.pause();
-    await interaction.reply('⏸️ Música pausada.');
+    queue.skip();
+    await interaction.reply('⏭️ Música pulada.');
   },
 };
