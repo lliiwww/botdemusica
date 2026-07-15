@@ -43,7 +43,7 @@ class GuildQueue {
       selfDeaf: true,
     });
 
-    await entersState(this.connection, VoiceConnectionStatus.Ready, 20_000);
+    await entersState(this.connection, VoiceConnectionStatus.Ready, 30_000);
     this.connection.subscribe(this.player);
 
     this.connection.on(VoiceConnectionStatus.Disconnected, async () => {
